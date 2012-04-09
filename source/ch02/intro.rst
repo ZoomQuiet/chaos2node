@@ -3,8 +3,7 @@
 
 好了,已经完成了预期的 :
 
-- 使用 `OpenResty`_ 
-- 包装 `金山网址云安全开放API <http://code.ijinshan.com/api/devmore4.html#md1>`_ 为接口服务
+- 使用 `node.js` 包装 `金山网址云安全开放API <http://code.ijinshan.com/api/devmore4.html#md1>`_ 为接口服务
 - 只要 `curl -d "uri=http://sina.com" localhost:9090/=/chk` 即可返回,金山云的数据!
 
 
@@ -13,8 +12,6 @@
 
     - `命名的艺术 <http://agentzh.org/misc/slides/naming/#2>`_
     - `“命名”课回顾 <http://agentzh.org/misc/slides/naming/naming_recap.html#2>`_
-
-    
 
 **但是** :
 
@@ -25,3 +22,21 @@
 
 所以,继续折腾...
 
+
+
+`no.de`_ 
+
+
+`Getting Started with a Node.js Development SmartMachine - Node - Joyent Customer Wiki <http://wiki.joyent.com/display/node/Getting+Started+with+a+Node.js+Development+SmartMachine>`_
+
+`Joyent Cloud | SmartOS and Linux Pricing Comparison <http://www.joyentcloud.com/products/pricing-comparison/smartos-linux>`_
+
+
+
+.. sidebar:: BTW:
+    :subtitle: 白菜价的商用维基
+
+    - `Confluence | Atlassian <http://www.atlassian.com/software/confluence/overview>`_
+    - Atlassian 这公司以 JAVA 的BBS 产品起家
+    - 改造成 JIRA 后,以极其便宜的价格占领了市场后
+    - 现在的产品覆盖了软件过程中的所有阶段,品质也很有保障,越來越多的企业选择了他们

@@ -6,7 +6,7 @@
 
 要干点儿实事儿了!
 
-仅仅以使用 `OpenResty`_ 包装 `金山网址云安全开放API <http://code.ijinshan.com/api/devmore4.html#md1>`_ 为实例
+仅仅以使用 `node.js`_ 包装 `金山网址云安全开放API <http://code.ijinshan.com/api/devmore4.html#md1>`_ 为实例
 
 那么,要解决的子问题有:
     - 怎么获得 `POST` 来的数据?

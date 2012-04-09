@@ -4,11 +4,14 @@
 调研
 ==============
 
-核心是先理解 `Lua`_ 的包管理机制:
 
-- `lua-users wiki: Modules Tutorial <http://lua-users.org/wiki/ModulesTutorial>`_
-- `lua-users wiki: Module Definition <http://lua-users.org/wiki/ModuleDefinition>`_
-- 以及更加直接的动力:
+
+`Getting Started with a Node.js Development SmartMachine - Node - Joyent Customer Wiki <http://wiki.joyent.com/display/node/Getting+Started+with+a+Node.js+Development+SmartMachine>`_
+
+
+`npm Integration - Node - Joyent Customer Wiki <http://wiki.joyent.com/display/node/npm+Integration>`_
+
+
 
 `OpenResty`_ 邮件列表中的讨论过程,核心作者的 `明确提示 <https://groups.google.com/forum/?fromgroups#!topic/openresty/AK5s69NMOFA>`_ :
 

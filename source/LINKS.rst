@@ -10,19 +10,16 @@
 
 
 .. 工程链接收集~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-.. _node.js: http://nodejs.org/
-
-.. _OpenResty: http://openresty.org/cn/
-.. _openrestywiki: http://openresty.org/cn/
-.. _openrestyrepo: http://github.com/agentzh/ngx_openresty
-.. _openrestymlist: http://groups.google.com/group/openresty
-
-.. _agentzh: http://agentzh.org/
 
 .. 外部链接收集~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-.. _Lua: http://en.wikipedia.org/wiki/Lua_%28programming_language%29
-.. _正则表达式: http://zh.wikipedia.org/wiki/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F
 .. _tmux: http://www.linuxtoy.org/archives/from-screen-to-tmux.html
+.. _node.js: http://nodejs.org/
+.. _V8: http://code.google.com/p/v8/
+.. _JavaScript: https://developer.mozilla.org/en/JavaScript
+.. _AJAX: https://developer.mozilla.org/en/AJAX
+.. _CoffeeScript: http://jashkenas.github.com/coffee-script/
+.. _no.de: http://wiki.joyent.com/display/node/Node.js+Home
+
 
 .. _Python: http://python.org
 .. _Pythonic: http://wiki.woodpecker.org.cn/moin/PythonIc
@@ -30,7 +27,8 @@
 .. _Python官网: http://www.python.org
 .. _PEP-8:  http://www.python.org/dev/peps/pep-0008/
 
-.. _stdyun.com: http://stdyun.com/vhost
+.. _Lua: http://en.wikipedia.org/wiki/Lua_%28programming_language%29
+.. _正则表达式: http://zh.wikipedia.org/wiki/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F
 
 .. _reSTsections: http://sphinx.pocoo.org/rest.html#sections
 

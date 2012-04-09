@@ -22,13 +22,14 @@
 
 .. seealso:: 暗示
     
-    - 那些需要通读先的:
 
-        - `openresty 电子文档 <http://openresty.org/#eBooks>`_
-        
-            - `教程博客版 <http://blog.sina.com.cn/s/blog_6d579ff40100y5p7.html>`_
-        
-        - `Lua程序设计 <http://book.luaer.cn/>`_
+    - 至少精读一次的:
 
-            - `Lua脚本语法说明 <http://www.cnblogs.com/ly4cn/archive/2006/08/04/467550.html>`_
+        - `Node入门 » 一本全面的Node.js教程 <http://www.nodebeginner.org/index-zh-cn.html>`_
+        - `Node.js Manual & Documentation <http://docs.cnodejs.net/cman/>`_
+
+    - 收集在案头参考的:
+
+        - `CoffeeScript <http://jashkenas.github.com/coffee-script/>`_
+        - `Express JS 中文入门指引手册 - CSSer <http://www.csser.com/tools/express-js/express-guide-reference-zh-CN.html>`_
 
