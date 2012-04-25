@@ -6,145 +6,36 @@
 
 最终,完成所有功能的配置和代码:
 
-- 版本仓库: https://github.com/ZoomQuiet/urisaok/tree/openresty
-- 对外发布: http://py.kingsoft.net:8008/=/chk    
-- 相关视频: `{3月8日语音讲座vol.45}ZQ: 网址云服务嵌入Nginx - Youku <http://v.youku.com/v_show/id_XMzYyNjIzMDQ4.html>`_
+- 版本仓库: https://github.com/ZoomQuiet/chaos2node
+- 对外发布: http://urisaok.no.de/ 
+- 相关视频: 
+
+    - `{2月16日语音讲座vol.42}ZQ: 网址云安node.js结合 <http://bbs.code.ijinshan.com/thread-1578-1-1.html>`_
+    - `{2月23日语音讲座vol.43}ZQ: 网址云服务结合mongo <http://bbs.code.ijinshan.com/thread-1590-1-1.html>`_
 
 
 
-nginx.conf
+
+接下来
 ---------------
 
+不论 `Joyent`_ 多给力, `no.de`_ 应用托管服务毕竟是国外主机!
 
-::
-
-    http {
-        ...
-        # 设置纯Lua扩展库PATH(';;' is the default path):
-        lua_package_path '/usr/local/openresty/nginx/conf/lua/?.lua;;';
-        include my_openresty.conf;
-        ...
+- 在 `GFW`_ 的作用下,誰也不知道什么时候受到什么牵连无法使用
+- 所以,能在墙内有个免费的 `node.js`_ 应用托管,那就好了,,,
 
 
-my_openresty.conf
-----------------------
+NAE
+^^^^^^^^^^^^^^
 
-::
+由 `cnodejs`_ .org 社区开发并运营的 `NAE`_ 就是这样一种服务!
 
-    server {
-        listen       9090;
-        server_name  localhost;
-        error_log   logs/error.my_openresty.log info;
-        default_type 'text/plain';
+- 不过,不同于 `no.de`_ ,不是 虚拟主机型 托管服务
+- 而是, 类似 `GAE`_ 的 `PaaS`_ 平台型云服务:
 
-        location / {
-            content_by_lua_file conf/lua/readme.lua;
-        }
-        location /readme {
-            content_by_lua_file conf/lua/readme.lua;
-        }
-
-        location ~ ^/=/(\w+) {
-            content_by_lua_file conf/lua/$1.lua;
-
-            lua_code_cache off;
-        }
-    }
+    - 接收代码
+    - 統一进行运行期自动管理
+    - 用户不用理会实际运行期,真实主机的情况
 
 
-
-readme.lua
-----------------------
-
-.. code-block:: lua
-
-    -- readme for /=/ export base help!
-    ngx.req.read_body()
-    VERTION="URIsAok4openresty v12.03.6"
-    ngx.say(VERTION
-        ,"\n\tusage:"
-        ,"$crul -d 'uri=http://sina.com' 127.0.0.1:9090/=/chk"
-        )
-
-
-ksc.lua
-----------------------
-
-.. code-block:: lua
-
-    -- KCS API support 
-    module("ksc", package.seeall)
-    curl = require "luacurl"
-    function _fetch_uri(url, c)
-        local result = { }
-        if c == nil then 
-            c = curl.new() 
-        end
-        c:setopt(curl.OPT_URL, url)
-        c:setopt(curl.OPT_WRITEDATA, result)
-        c:setopt(curl.OPT_WRITEFUNCTION, function(tab, buffer)
-            table.insert(tab, buffer)
-            return #buffer
-        end)
-        local ok = c:perform()
-        return ok, table.concat(result)
-    end
-    -- global var
-    PHISHTYPE = {["-1"]='UNKNOW'
-        ,["0"]='GOOD'
-        ,["1"]='PHISH'
-        ,["2"]='MAYBE PHISH'
-        }
-    --ngx.say(PHISHTYPE["2"])
-    APPKEY = "k-60666"
-    SECRET = "99fc9fdbc6761f7d898ad25762407373"
-    ASKHOST = "http://open.pc120.com"
-    ASKTYPE = "/phish/?"
-    function checkForValidUrl(uri)
-        ngx.say("uri:\t",uri)
-        crtURI = ngx.encode_base64(uri)
-        timestamp = ngx.now()
-        signbase = ASKTYPE .. "appkey=" .. APPKEY .. "&q=" .. crtURI .. "&timestamp=" .. timestamp
-        sign = ngx.md5(signbase .. SECRET)
-        return ASKHOST .. signbase .. "&sign=" .. sign
-    end
-
-
-
-
-chk.lua
-----------------------
-
-.. code-block:: lua
-
-    -- try openresty easy creat RESTful API srv.
-    ngx.req.read_body()
-    local method = ngx.var.request_method
-    local KSC = require "ksc"
-
-    if method ~= 'POST' then
-        ngx.say('pls. only POST chk me;-)')
-        local readme = ngx.location.capture("/readme")
-        if readme.status == 200 then
-            ngx.say(readme.body)
-        end
-    else
-        local data = ngx.req.get_body_data()
-        local args = ngx.req.get_post_args()
-        local uri = args.uri
-        local url = uri --fields[3]
-        local chkURI = KSC.checkForValidUrl(url)
-        ok, html = KSC._fetch_uri(chkURI)
-        if ok then
-            local cjson = require "cjson"
-            json = cjson.decode(html)
-            if 1 == json.success then
-                ngx.log(ngx.INFO,"\n\tKCS say:  ",html,"\n\t")
-                ngx.say("KCS /phish?:\t", KSC.PHISHTYPE[tostring(json.phish)])
-            else
-                ngx.say("KCS say:\t",html)
-            end
-        end
-    end
-
-
+具体的,在外一篇中继续乱入了,,,

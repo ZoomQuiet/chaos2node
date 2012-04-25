@@ -15,28 +15,11 @@
 
 **但是** :
 
-- 代码很集中,业务逻辑离头部很远,很难看
-- 当没有进行 `POST` 请求时,以及各种其它意外请求时,并没智能的捕获,并提示
-- 变量名设计的都很挫,需要重构
+- 到哪儿将这一简单服务快速可简便维护的发布出来?
+- 直接給出的那一堆代码是怎么一点点写出来的?
+- 变量名设计的都很挫,需要重构...
+
 ...
 
-所以,继续折腾...
+所以,继续折腾以及反思...
 
-
-
-`no.de`_ 
-
-
-`Getting Started with a Node.js Development SmartMachine - Node - Joyent Customer Wiki <http://wiki.joyent.com/display/node/Getting+Started+with+a+Node.js+Development+SmartMachine>`_
-
-`Joyent Cloud | SmartOS and Linux Pricing Comparison <http://www.joyentcloud.com/products/pricing-comparison/smartos-linux>`_
-
-
-
-.. sidebar:: BTW:
-    :subtitle: 白菜价的商用维基
-
-    - `Confluence | Atlassian <http://www.atlassian.com/software/confluence/overview>`_
-    - Atlassian 这公司以 JAVA 的BBS 产品起家
-    - 改造成 JIRA 后,以极其便宜的价格占领了市场后
-    - 现在的产品覆盖了软件过程中的所有阶段,品质也很有保障,越來越多的企业选择了他们

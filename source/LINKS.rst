@@ -17,8 +17,18 @@
 .. _V8: http://code.google.com/p/v8/
 .. _JavaScript: https://developer.mozilla.org/en/JavaScript
 .. _AJAX: https://developer.mozilla.org/en/AJAX
+.. _SSH: http://zh.wikipedia.org/zh/SSH
 .. _CoffeeScript: http://jashkenas.github.com/coffee-script/
+.. _Joyent: http://wiki.joyent.com/display/www/Documentation+Home
 .. _no.de: http://wiki.joyent.com/display/node/Node.js+Home
+.. _npm: http://npmjs.org/
+.. _git: http://progit.org/book/zh/
+
+.. _GFW: http://zh.wikipedia.org/wiki/Great_Firewall
+.. _cnodejs: http://cnodejs.org/
+.. _NAE: http://cnodejs.net/
+.. _GAE: http://zh.wikipedia.org/wiki/GAE
+.. _PaaS: http://zh.wikipedia.org/wiki/PaaS
 
 
 .. _Python: http://python.org
@@ -34,6 +44,10 @@
 
 .. 图片链接收集~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+
+.. |zqeyes| image:: _static/zq-eyes.png
+   :alt: 是也乎;-)
+   :target: http://wiki.woodpecker.org.cn/moin/ZoomQuiet
 
 
 
