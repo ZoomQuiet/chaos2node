@@ -1,23 +1,23 @@
 .. include:: ../LINKS.rst
 
 
-+10分钟:初尝
++7分钟:初尝
 ==============
 
 整起来先!
-- 嗯嗯嗯,现在可以计时了: `00:00`
+- 嗯嗯嗯,现在可以计时了:
 
-安装
---------
+00:00~安装
+------------------------
 
 `参考:` `官方安装说明 <https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager>`_
 
 
 .. sidebar:: 提示
 
-    - 不专门说明的话,指的都是笔者的个人环境:
+    不专门说明的话,指的都是笔者的个人环境:
 
-      - MAC OS X 10.7.3
+      - MAC OS X 10.7
       - brew 0.8.1
       - node 0.6.12
       - coffeescript 1.2.0
@@ -83,6 +83,15 @@
       │ └─┬ block-stream@0.0.5 
       │   └── inherits@1.0.0 
       └── which@1.0.3 
+
+
+.. seealso:: (^.^)
+    
+    - 好吧,俺是使用舒服无比的 "`家酿 <http://mxcl.github.com/homebrew/>`_" 软件包管理系统
+    - 事实上在各种 Linux/UNIX 发行版中都有对应的软件包管理系统,耳目能详的 apt/ports/rpm/yum ...
+    - 只有 M$ 中真心没有,不过, `node.js`_ 的安裝是提供有专门的 `.msi安装包的!  <http://nodejs.org/#download>`_ 
+    - `npm`_ 当然也有方法,不过是需要使用安装好的 `node.js`_ 进行编译, 参考: `InfoQ: 深入浅出Node.js（二）：Node.js&NPM的安装与配置 <http://www.infoq.com/cn/articles/nodejs-npm-install-config>`_
+
 
 
 
@@ -159,15 +168,15 @@
 那么接下来怎么整?
 
 
-小结
-------
+07:01 小结
+------------------------------
 
-不出意外的话, `10:00` 用在这个阶段,太足够了!
+不出意外的话, 7分钟 用在这个阶段,太足够了!
 
 应该已经体验到  `node.js`_ 的核心爽直了?!
 
-- 只要具备 JavaScipty 的编程经验,就可以进行服务端的开发了!
-- 而且, 性能在 **`V8`_** 引擎的强力支持下一点也不差!
+- 只要具备 `JavaScript`_ 的编程经验,就可以进行服务端的开发了!
+- 而且, 性能在 `V8`_  引擎的强力支持下一点也不差!
 
 
 

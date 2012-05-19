@@ -11,7 +11,6 @@ Joyent
 - 而结合后的产物就是: `no.de`_  ~ 有爱的最短 `node.js` 应用托管服务!
 
 
-
 .. sidebar:: BTW:
     :subtitle: 白菜价的商用维基
 

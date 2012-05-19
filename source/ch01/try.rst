@@ -1,7 +1,7 @@
 .. include:: ../LINKS.rst
 
 
-+20分钟:突入node.js 
++20分钟:突入 CoffeeScript 
 ============================
 
 
@@ -12,48 +12,27 @@ google 真心好朋友,通过搜索可以获得很多已经用上 `node.js`_ 的
 - 嗯嗯嗯,现在可以计时了: `15:01`
 
 
-阵地
----------
+07:05~ 确认阵地
+------------------------------------
 
 - 要完成的是个接口服务网站
 - 应该使用 web 应用框架减少代码量
 - 更加要使用 `CoffeeScript`_ 来进一步减少代码!
 
-.. code-block:: js
 
-    http = require 'http'
-
-    http.createServer (req,res) -> 
-        res.writeHead 200, {'Content-Type': 'text/plain'}
-        res.end '''Hello World
-            URIsaok base KSC
-                {v12.02.13.1}
-            '''
-    .listen process.env.PORT || 8001
+.. literalinclude:: hollo.coffee
+    :language: js
 
 
 同样的 `Hollo World` 使用 `CoffeeScript`_  书写后,少了很多零碎,而且支持很多方便的特性,舒服多了,,,
 
+- 具体情景如 :ref:`fig_1_1` 所示
 
-.. code-block:: js
-    
-    // 使用 express 框架,快速建立应用阵地
-    express = require("express")
-    app = module.exports = express.createServer()
-    app.configure ->
-        app.use express.methodOverride()
-        app.use express.bodyParser()
-        // 以上都是基本配置,照抄就好
-        app.get '/', (req, res) ->
-            // 捕获 GET 请求
-            res.send("""Hello World!
-                for URIsaok{v12.03.23--}
-                """)
-        app.post '/chk', (req, res) ->
-            // 捕获 POST 请求
-            console.log req.body
-            res.send req.body
-    app.listen process.env.PORT || 8001
+.. _fig_1_1:
+.. figure:: ../_static/figs/coffee-hollo.png
+
+   插图.1-1 运行 `CoffeeScript` 改写的情景
+
 
 
 进一步的,其实,比较舒服的开发环境,应该是:
@@ -96,8 +75,134 @@ google 真心好朋友,通过搜索可以获得很多已经用上 `node.js`_ 的
 
 
 
-搞掂
----------
+囧过程: 框架选择
+---------------------------
+
+什么是框架呢? 简单的摆和就是:
+
+- 框架是给人使用的,相比库,是给程序使用的,,,
+- 框架包含了领域经验,针对领域的常见问题,进行了友好的封装,得以用简洁的代码完成同样的功能
+- 框架包含的经验,封装成了固化的解决思路,如果和我们的问题域对不上,那将是非常的麻烦,不得不深入框架的代码进行各种 `Hacking` 了,到那时,也就丧失了 框架的加速问题解决的本质功能了,,,
+- 这时,果然换之!
+
+在解决: 包装 `金山网址云安全开放API <http://code.ijinshan.com/api/devmore4.html#md1>`_ 为接口服务
+
+- 这一问题之时
+- 笔者就是不信邪尝试了一批 `CoffeeScript`_ web 应用框架
+- 結果...
+
+
+`Zappa <https://github.com/mauricemach/zappa>`_
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+号称给懒人使用的框架,开始很美:
+
+.. literalinclude:: z.coffee
+    :language: js
+
+
+
+哗! 比 `CoffeeScript`_ 更加简洁,完成相同的路由声明,以及默认返回信息吼,,,
+
+- 可是!
+- 文档真心简洁!
+- 什么获得 POST 的数据?
+- 怎么进行调试的日志输出?
+- 什么也找不到,,,
+
+
+`Express`_
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+`Express`_ 可以説是目前 `node.js`_ 框架中的 `一哥` ! 功能多/稳定/高效!
+
+- 不过,是纯 `node.js`_ 的
+- 暂时还没有 `CoffeeScript`_ 的版本
+- 根据 `文档中的相关片段 <http://expressjs.com/guide.html#routing>`_
+
+.. code-block:: js
+
+    var express = require('express')
+      , app = express.createServer();
+
+    app.use(express.bodyParser());
+
+    app.post('/', function(req, res){
+      res.send(req.body);
+    });
+
+    app.listen(3000);
+
+
+手工改写成 `CoffeeScript`_ 格式,感觉,还算自然:
+
+.. code-block:: js
+    
+    // 使用 express 框架,快速建立应用阵地
+    express = require("express")
+    app = module.exports = express.createServer()
+    app.configure ->
+        app.use express.methodOverride()
+        app.use express.bodyParser()
+        // 以上都是基本配置,照抄就好
+        app.get '/', (req, res) ->
+            // 捕获 GET 请求
+            res.send("""Hello World!
+                for URIsaok{v12.03.23--}
+                """)
+        app.post '/chk', (req, res) ->
+            // 捕获 POST 请求
+            console.log req.body
+            res.send req.body
+    app.listen process.env.PORT || 8001
+
+
+- 解决了 POST 数据获取
+- 路由当然也很自在
+- 问题是死活没有找到怎么在 `Express`_ 中进行对外部网站请求,并接受数据的方式!!!
+
+
+HTTP 内置模块
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+只有认真沉下心来挖掘官方文档,果然!
+
+- `HTTP <http://nodejs.org/api/http.html#http_http_get_options_callback>`_ 内置模块中有
+- `http.get(options, callback)` 专用函式
+
+
+.. code-block:: js
+
+    var options = {
+      host: 'www.google.com',
+      port: 80,
+      path: '/index.html'
+    };
+
+    http.get(options, function(res) {
+      console.log("Got response: " + res.statusCode);
+    }).on('error', function(e) {
+      console.log("Got error: " + e.message);
+    });
+
+
+依然手工改写为对应的 `CoffeeScript`_ 形式,的确可用!
+
+
+所以呢:
+    - 模块/包,现在 `node.js`_ 真心非常丰富了!
+    - 但是品质并不都是 NB 的
+    - 选择一定要以解决自身问题为基础,不能光求新鮮
+    - 而且一定要关注作者是否勤奋,否则,下个 `node.js`_ 版本就不兼容了,要死人的,,,
+    - 所以呢,俺现在习惯对模块的选择,综合以下要点:
+
+        #. 文档是否规范
+        #. 修订是否积极
+        #. 分支是否多
+
+
+搞掂?!
+------------------
 
 好的,什么都整顿舒服了,就可以快速一条条试错的方式,堆出所有业务逻辑了!
 
@@ -164,7 +269,15 @@ google 真心好朋友,通过搜索可以获得很多已经用上 `node.js`_ 的
 
 但是,怎么 `向外部url发出请求并接收数据?!`
 
-- `简单问题: http.get() 如何同步返回給客户端? - CNode <http://club.cnodejs.org/topic/4f3b7ebdb43c3c846a062332>`_
+- 之前选择框架时,已经可以使用 `http.get()` 获取外部数据了
+- 问题是:
+
+    - `简单问题: http.get() 如何同步返回給客户端? - CNode <http://club.cnodejs.org/topic/4f3b7ebdb43c3c846a062332>`_
+    - `node.js`_ 是天生异步的!
+    - 对外网的请求也是! 所以,发出请求后,就自然返回了
+    - 数据接收完备后,才继续处理
+    - 可素! 此时,客户的本次请求已经返回了! 没有可用的 i/o 句柄返回远端数据了吼!!!
+
 
 测试输出如 :ref:`fig_1_4`
 
@@ -178,27 +291,23 @@ google 真心好朋友,通过搜索可以获得很多已经用上 `node.js`_ 的
 fetch
 ^^^^^^^^^^^^^^^^^
 
+一搜索才知道, `npm`_ 包中,最多的一种包,就是将 `node.js`_ 的异步行为,封装成同步形式的各种包裹式模块!
 
-- 增补到工作脚本中
-
-.. code-block:: lua
-
-    --前略,,,
-    local chkURI = checkForValidUrl(url)
-    --ngx.say(chkURI)
-    ok, html = _fetch_uri(chkURI)
-    ngx.say("_fetch_uri:\t", ok, "\t", html)
+- `andris9/fetch <https://github.com/andris9/fetch>`_
+- 功能单一,形式简洁,文档规范
+- 就是它了!增补到工作脚本中
 
 
-- 测试,确认效果: ::
+整个儿的:
 
-    ...
-    http://open.pc120.com/phish/?appkey=k-60666&q=aHR0cDovL3NpbmEuY29t&timestamp=1331306157.315&sign=4190815f3920d9bbd0d1410525343a0e
-    _fetch_uri:     true    {"success":1,"phish":0}
+.. literalinclude:: app.coffee
+    :language: py
 
 
 
-基本功能,达成, `收功!`
+- 测试,确认效果
+- 基本功能,达成, `收功!`
+
 
 
 .. warning:: (#_#)
@@ -209,26 +318,23 @@ fetch
     
 
 
+37:15 ~ 小结
+---------------------------
 
-
-小结
----------
-
-`30:07` ~ 这一堆,二十分鈡,整出来不难吧?
+~ 这一堆,二十分鈡,整出来不难吧?
 
 想来:
 - 其实,关键功能性行为代码,就8行
 
     - 其中7 行全部可以在google 中直接搜索到
     - 仅仅有一行,是需要学习新的工具,安装新的组件,学习新的文档,抄进来新的函式
-    - 即: `ok, html = _fetch_uri(chkURI)`
 
 - 其余,都是力气活儿
 
     - 只要别抄錯
     - 都是赋值,赋值,赋值,赋值,,,,
 
-- 只要注意每一步,都使用 `ngx.say()` 吼回来,测试确认无误,就可以继续前进了,,,
+- 只要注意每一步,都使用 `console.log` 吼回来,测试确认无误,就可以继续前进了,,,
 
 `这就是脚本语言的直觉式开发调试体验!`
 

@@ -14,18 +14,27 @@
 .. 外部链接收集~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. _tmux: http://www.linuxtoy.org/archives/from-screen-to-tmux.html
 .. _node.js: http://nodejs.org/
-.. _V8: http://code.google.com/p/v8/
+
+.. .. _V8: http://code.google.com/p/v8/
+.. _V8: http://zh.wikipedia.org/wiki/V8_(JavaScript%E5%BC%95%E6%93%8E)
+
 .. _JavaScript: https://developer.mozilla.org/en/JavaScript
-.. _AJAX: https://developer.mozilla.org/en/AJAX
-.. _SSH: http://zh.wikipedia.org/zh/SSH
 .. _CoffeeScript: http://jashkenas.github.com/coffee-script/
+.. _Express: http://expressjs.com/
+
 .. _Joyent: http://wiki.joyent.com/display/www/Documentation+Home
 .. _no.de: http://wiki.joyent.com/display/node/Node.js+Home
 .. _npm: http://npmjs.org/
 .. _git: http://progit.org/book/zh/
+.. _Solaris: http://zh.wikipedia.org/zh/Solaris_(%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F)
+
+.. _AJAX: https://developer.mozilla.org/en/AJAX
+.. _SSH: http://zh.wikipedia.org/zh/SSH
 
 .. _GFW: http://zh.wikipedia.org/wiki/Great_Firewall
+
 .. _cnodejs: http://cnodejs.org/
+
 .. _NAE: http://cnodejs.net/
 .. _GAE: http://zh.wikipedia.org/wiki/GAE
 .. _PaaS: http://zh.wikipedia.org/wiki/PaaS

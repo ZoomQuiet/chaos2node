@@ -16,16 +16,17 @@ Coffee整备
 
 
 中文的推荐:
+
 - `为什么CoffeeScript这么美? - CNode <http://club.cnodejs.org/topic/4f16442ccae1f4aa270010cb>`_
 - `10个让朋友对你刮目相看的CoffeeScript单行代码绝技 <http://heikezhi.com/2011/06/08/10-coffeescript-one-liners-to-impress-your-friends/>`_
-- 
+
 
 
 基本语法
 ---------------
 
 
-.. code-block:: js
+::
 
     # 单行注释
     ###
