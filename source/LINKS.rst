@@ -36,9 +36,11 @@
 .. _cnodejs: http://cnodejs.org/
 
 .. _NAE: http://cnodejs.net/
+.. _SAE: http://sae.sina.com.cn/?m=devcenter
+
 .. _GAE: http://zh.wikipedia.org/wiki/GAE
 .. _PaaS: http://zh.wikipedia.org/wiki/PaaS
-
+.. _IaaS: http://zh.wikipedia.org/wiki/IaaS
 
 .. _Python: http://python.org
 .. _Pythonic: http://wiki.woodpecker.org.cn/moin/PythonIc
