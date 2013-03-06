@@ -37,9 +37,11 @@ JS预备
 只要明确一些 `JavaScript`_ 的`基本形式` 80% 的实际编程就可以混进去了 `!-)` :
 
 严正推荐: `JavaScript - MDN <https://developer.mozilla.org/en/JavaScript>`_
+
 - 组织良好的所有相关资料!
 
 中文的推荐:
+
 - `JavaScript 教程 <http://www.w3school.com.cn/js/index.asp>`_
 - `JavaScript 参考教程 <http://www.jb51.net/shouce/javascript/>`_
 
